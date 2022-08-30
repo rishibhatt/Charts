@@ -1,0 +1,42 @@
+.nav-container
+{
+    border: 2px solid black;
+    background-color: #5470C6;
+    width: 101%;
+    height:8rem;
+    overflow-x: hidden;
+
+}
+.nav
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+    
+}
+
+.logo
+{
+    font-size: clamp(1rem, 10vw, 3rem); 
+    padding: min(1rem,1.3rem);
+    color: white;
+    
+}
+
+.logo-name
+{
+    font-size: 3rem;
+    color: white;
+    font-size: clamp(1rem, 10vw, 3rem); 
+    
+}
+
+@media screen and (max-width: 480px) {
+    .nav-container{
+        height: 5em;
+    }
+    
+  }

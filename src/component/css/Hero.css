@@ -1,0 +1,40 @@
+.hero
+{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+   padding-bottom: 80px;
+   background-color: white;
+   
+   
+}
+.hero-image
+{
+    height: 80vh;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+.hero-text
+{
+    color: #5470c6;
+    font-size: 6.05rem;
+    padding: 15px;
+    letter-spacing: 5px;
+    margin-left: 40px;
+    -webkit-text-stroke: 2px black;
+    
+}
+.hero-text span
+{
+    font-weight: bold;
+    background-color:#5470c6;
+    color: white;
+    padding: 15px;
+    -webkit-text-stroke: 2px white;
+    
+   
+    
+}
+
