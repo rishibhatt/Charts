@@ -1,77 +1,76 @@
 import React, { useEffect, useState } from 'react'
 import ReactEcharts from "echarts-for-react";
-import axios from 'axios';
 import './css/Main.css'
+import wineData from '../Wine-Data.json'
 
-import wine from '../Wine-Data.json'
+
 function Main() {
 
+    const arrayWithAlcohol1: any[] = [];
+    const arrayWithAlcohol2: any[] = [];
+    const arrayWithAlcohol3: any[] = [];
 
-    const Alcoholc: any[] = [];
-    const Alcoholc2: any[] = [];
-    const Alcoholc3: any[] = [];
-
+   
     // filtering data from json
     // pushing into empty array based on category
-    wine.map((f) => {   
-        if(f.Alcohol == 1)
+    wineData.map((data) => {   
+        if(data.Alcohol == 1)
         {
-            Alcoholc.push(f);
+            arrayWithAlcohol1.push(data);
 
         }
-        else if(f.Alcohol == 2)
+        else if(data.Alcohol == 2)
         {
-            Alcoholc2.push(f)
+            arrayWithAlcohol2.push(data)
         }
 
         else
         {
-            Alcoholc3.push(f)
+            arrayWithAlcohol3.push(data)
         }
 
     })
 
-    console.log(Alcoholc);
-
+    console.log(arrayWithAlcohol1);
 
     // calculating sum of Malic Acid based on their respective category 
 
-    let sum: number = Alcoholc.map(z =>
+    let sum: number = arrayWithAlcohol1.map(z =>
+        z['Malic Acid']).reduce(function (a, b) {
+            return (a + b);
+        }
+
+
+    );
+
+    let sum2: number = arrayWithAlcohol2.map(z =>
         z['Malic Acid']).reduce(function (a, b) {
             return a + b;
         }
 
     );
 
-    let sum2: number = Alcoholc2.map(z =>
+    let sum3: number = arrayWithAlcohol2.map(z =>
         z['Malic Acid']).reduce(function (a, b) {
             return a + b;
         }
 
     );
 
-    let sum3: number = Alcoholc2.map(z =>
-        z['Malic Acid']).reduce(function (a, b) {
-            return a + b;
-        }
-
-    );
-
+    console.log(sum);
     // calculating average 
-   const avgg = sum/Alcoholc.length;
-   const avgg2 = sum2/Alcoholc2.length;
-   const avgg3 = sum3/Alcoholc3.length;
-console.log(avgg);
-console.log(avgg2);
-console.log(avgg3);
-console.log(Alcoholc.length)
-console.log(Alcoholc2.length)
-console.log(Alcoholc3.length)
+   const average = sum/arrayWithAlcohol1.length;
+   const average2 = sum2/arrayWithAlcohol2.length;
+   const average3 = sum3/arrayWithAlcohol3.length;
+console.log(average);
+console.log(average2);
+console.log(average3);
 
 
 
 
-console.log(wine);
+
+console.log(wineData);
 
 const option = {
     xAxis: {
@@ -105,9 +104,9 @@ const option = {
 
         {
 
-            data: wine.map((s, id) => {
+            data: wineData.map((data, id) => {
 
-                return [s['Color intensity'], s.Hue]
+                return [data['Color intensity'], data.Hue]
             }),
 
             type: 'scatter'
@@ -142,7 +141,7 @@ const option2 = {
 
         {
 
-            data: [avgg,avgg2,avgg3],
+            data: [average,average2,average3],
             type: 'bar',
             barWidth:'30%',
             barCategoryGap: '30%'

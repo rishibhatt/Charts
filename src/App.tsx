@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './component/Navbar';
 import Main from './component/Main';
 import Hero from './component/Hero';
-
+import wine from './Wine-Data.json'
 function App() {
   return (
     <div className="App">
@@ -12,6 +12,7 @@ function App() {
         <Navbar />
         <Hero />
         <Main />
+        
       </div>
     </div>
   );
